@@ -23,12 +23,6 @@ public class AnimeController {
 
     //localhost:8080/anime/list
     @GetMapping("list")//Metodo passando URL do Metodo
-    public List<Anime> tokusatsus(){
-        log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
-        return List.of( new Anime("Jiraya"), new Anime("Jaspion"));
-    }
-
-    @GetMapping("list2")//Metodo passando URL do Metodo
     public List<Anime> animes(){
         log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return List.of( new Anime("DBZ"), new Anime("One Piece"));
