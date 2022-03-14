@@ -35,4 +35,8 @@ public class AnimeService {
         animes.add(anime); //adiciona o anime
         return anime; //retorna o anime adicionado
     }
+
+    public void delete(long id) {
+        animes.remove(findById(id));//remove (metodo padrao do List) o item de acordo com o ID encontrado pelo metodo FindByID
+    }
 }
