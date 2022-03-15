@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  db:
+    image: mysql
+    container_name: springboot2_essentials_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - devdojo_data:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - mysql-compose-network
+
+volumes:
+  devdojo_data:
+
+networks:
+  mysql-compose-network:
+    driver: bridge
