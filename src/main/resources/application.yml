@@ -1,4 +1,13 @@
 server:
   error:
     include-stacktrace: on_param
-  port: 8081
+  port: 8081 #alterada porta da aplicação
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/anime?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true #Desabilitado SSL pois vamos usar local e se o Schema nao existir ele ira criar
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update #Todas as vezes que iniciar a aplicação ira atualizar o banco

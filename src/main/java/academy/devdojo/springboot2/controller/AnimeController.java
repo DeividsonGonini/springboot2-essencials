@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController//Especifica que a classe é um controller e adiciona o @ResponseBody(o retorno dos metodos dessa classe sao apenas String)
-@RequestMapping("animes")//URL da Classe
+@RequestMapping("anime")//URL da Classe
 @Log4j2
 @RequiredArgsConstructor
 public class AnimeController {
