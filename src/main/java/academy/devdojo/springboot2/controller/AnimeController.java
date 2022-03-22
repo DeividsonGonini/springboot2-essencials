@@ -1,6 +1,8 @@
 package academy.devdojo.springboot2.controller;
 
 import academy.devdojo.springboot2.domain.Anime;
+import academy.devdojo.springboot2.requests.AnimePostRequestBody;
+import academy.devdojo.springboot2.requests.AnimePutRequestBody;
 import academy.devdojo.springboot2.service.AnimeService;
 import academy.devdojo.springboot2.util.DateUtil;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +15,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController//Especifica que a classe é um controller e adiciona o @ResponseBody(o retorno dos metodos dessa classe sao apenas String)
-@RequestMapping("anime")//URL da Classe
+@RequestMapping("animes")//URL da Classe
 @Log4j2
 @RequiredArgsConstructor
 public class AnimeController {
@@ -30,13 +32,13 @@ public class AnimeController {
 
     @GetMapping(path = "/{id}")//Metodo passando URL do Metodo
     public ResponseEntity<Anime> findById(@PathVariable long id){
-        return ResponseEntity.ok(animeService.findById(id));
+        return ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));
     }
 
 
     @PostMapping
-    public ResponseEntity<Anime> save(@RequestBody Anime anime){
-        return new ResponseEntity<>(animeService.save(anime), HttpStatus.CREATED);
+    public ResponseEntity<Anime> save(@RequestBody AnimePostRequestBody animePostRequestBody){
+        return new ResponseEntity<>(animeService.save(animePostRequestBody), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")//Metodo passando URL do Metodo
@@ -46,8 +48,8 @@ public class AnimeController {
     }
 
     @PutMapping//Metodo passando URL do Metodo
-    public ResponseEntity<Void> replace(@RequestBody Anime anime){
-        animeService.replace(anime);
+    public ResponseEntity<Void> replace(@RequestBody AnimePutRequestBody animePutRequestBody){
+        animeService.replace(animePutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
