@@ -35,6 +35,11 @@ public class AnimeController {
         return ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));
     }
 
+    @GetMapping(path ="/find")
+    //@RequestParam - Extrai o parametro da consulta que sera executada
+    public ResponseEntity<List<Anime>>findByName(@RequestParam String name){
+        return ResponseEntity.ok(animeService.findByName(name));
+    }
 
     @PostMapping
     public ResponseEntity<Anime> save(@RequestBody AnimePostRequestBody animePostRequestBody){
