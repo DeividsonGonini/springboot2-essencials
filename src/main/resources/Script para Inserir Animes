@@ -1,0 +1,10 @@
+INSERT INTO anime.anime (name) VALUES ("DBZ");
+INSERT INTO anime.anime (name) VALUES ("Naruto");
+INSERT INTO anime.anime (name) VALUES ("OverLord");
+INSERT INTO anime.anime (name) VALUES ("Cowboy Bebop");
+INSERT INTO anime.anime (name) VALUES ("Drifters");
+INSERT INTO anime.anime (name) VALUES ("Hellsing");
+INSERT INTO anime.anime (name) VALUES ("Berserk");
+INSERT INTO anime.anime (name) VALUES ("Golden Kamuy");
+INSERT INTO anime.anime (name) VALUES ("God Eater");
+INSERT INTO anime.anime (name) VALUES ("Grand Blue");
