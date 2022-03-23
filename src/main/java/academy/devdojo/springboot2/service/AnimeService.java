@@ -9,6 +9,7 @@ import academy.devdojo.springboot2.requests.AnimePutRequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -32,7 +33,8 @@ public class AnimeService {
                 .orElseThrow(() -> new BadRequestException("Anime não encontrado"));// Em caso de erro  Retorna Bad Request e mensagem.
     }
 
-    public Anime save( AnimePostRequestBody animePostRequestBody) {
+    @Transactional//Só executa o commit apos a finalização do metodo, caso ocorra alguma exceção ele faz o rollback
+    public Anime save( AnimePostRequestBody animePostRequestBody){
         return animeRepository.save(AnimeMapper.INSTANCIA.toAnime(animePostRequestBody)); //retorna o anime adicionado
     }
 
