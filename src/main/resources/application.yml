@@ -1,6 +1,6 @@
 server:
   error:
-    include-stacktrace: on_param
+    include-stacktrace: on_param #configura o stacktrace
   port: 8081 #alterada porta da aplicação
 
 spring:
@@ -11,4 +11,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update #Todas as vezes que iniciar a aplicação ira atualizar o banco
-    show-sql: true #mostra no console a query SQL que esta sendo executada pelo JPA
+        #show-sql: true #mostra no console a query SQL que esta sendo executada pelo JPA
+  output:
+    ansi:
+      enabled: ALWAYS #habilita os logs com fonte colorida
+
+
+#mostra no console a query SQL que esta sendo executada pelo JPA
+logging:
+   level:
+     org:
+       hibernate:
+         SQL: DEBUG #mostra no console a query SQL que esta sendo executada pelo JPA
