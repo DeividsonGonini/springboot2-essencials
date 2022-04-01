@@ -52,13 +52,40 @@ public class SpringClient {
 
          //##########################################//
         //           POST com Exchange              //
-       //##########################################//        Anime samuraiChamploo = Anime.builder().name("SamuraiChamploo").build();
+       //##########################################//
+        Anime samuraiChamploo = Anime.builder().name("SamuraiChamploo").build();
+
         ResponseEntity<Anime> samuraiChamplooSalvo = new RestTemplate().exchange("http://localhost:8081/animes/",
                 HttpMethod.POST,
                 new HttpEntity<>(samuraiChamploo, createJsonHeader()),
                 Anime.class);
         log.info("Anime Salvo: {}", samuraiChamplooSalvo);
+
+         //##########################################//
+        //           PUT com Exchange               //
+       //##########################################//
+        Anime animeAtualizacao = samuraiChamplooSalvo.getBody();
+        animeAtualizacao.setName("Samurai Champloo 2" );
+
+        ResponseEntity<Void> samuraiChamplooAtualizado = new RestTemplate().exchange("http://localhost:8081/animes/",
+                HttpMethod.PUT,
+                new HttpEntity<>(animeAtualizacao, createJsonHeader()),
+                Void.class);
+        log.info("Anime Atualizado: {}", samuraiChamplooAtualizado);
+
+
+         //##########################################//
+        //           DELETE com Exchange            //
+       //##########################################//
+
+        ResponseEntity<Void> samuraiChamplooDeletado = new RestTemplate().exchange("http://localhost:8081/animes/{id}",
+                HttpMethod.DELETE,
+                null,
+                Void.class,
+                animeAtualizacao.getId());
+        log.info("Anime Atualizado: {}", samuraiChamplooAtualizado);
     }
+
 
     //Metodo para Enviar Headers na requisição
     private static HttpHeaders createJsonHeader(){
