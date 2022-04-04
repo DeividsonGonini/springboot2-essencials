@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,9 +79,9 @@ class AnimeRepositoryTest {
 
         List<Anime> animes = this.animeRepository.findByName(name);
 
-        Assertions.assertThat(animes).isNotEmpty();
-
-        Assertions.assertThat(animes).contains(animeSalvo);
+        Assertions.assertThat(animes)
+                .isNotEmpty()
+                .contains(animeSalvo);
     }
 
     @Test
@@ -91,6 +92,22 @@ class AnimeRepositoryTest {
 
         Assertions.assertThat(animes).isEmpty();
     }
+
+    //Teste quebrando provavelmente por se perder no MapStruct
+//    @Test
+//    @DisplayName("Salvar throw - ConstraintVolationException quando nome é vazio")
+//    void save_ThowsConstraintViolationException_QuandoNomeEVazio(){
+//        Anime anime = new Anime();
+////        anime.setName("");
+//
+////        Assertions.assertThatThrownBy(() ->this.animeRepository.save(anime))
+////                .isInstanceOf(ConstraintViolationException.class);
+//
+//        Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
+//                .isThrownBy(() -> this.animeRepository.save(anime))
+//                .withMessageContaining("O nome do Anime não pode ser vazio nem nulo");
+//
+//    }
 
 
 
