@@ -98,15 +98,15 @@ class AnimeRepositoryTest {
 //    @DisplayName("Salvar throw - ConstraintVolationException quando nome é vazio")
 //    void save_ThowsConstraintViolationException_QuandoNomeEVazio(){
 //        Anime anime = new Anime();
-////        anime.setName("");
+//        anime.setName("");
 //
-////        Assertions.assertThatThrownBy(() ->this.animeRepository.save(anime))
-////                .isInstanceOf(ConstraintViolationException.class);
+//        Assertions.assertThatThrownBy(() ->this.animeRepository.save(anime))
+//                .isInstanceOf(ConstraintViolationException.class);
 //
 //        Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
 //                .isThrownBy(() -> this.animeRepository.save(anime))
 //                .withMessageContaining("O nome do Anime não pode ser vazio nem nulo");
-//
+
 //    }
 
 
