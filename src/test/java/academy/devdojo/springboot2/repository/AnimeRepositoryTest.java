@@ -1,6 +1,7 @@
 package academy.devdojo.springboot2.repository;
 
 import academy.devdojo.springboot2.domain.Anime;
+import academy.devdojo.springboot2.util.AnimeCreator;
 import lombok.extern.log4j.Log4j2;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,8 +22,8 @@ class AnimeRepositoryTest {
 
     @Test
     @DisplayName("Salvar anime - quando sucesso")
-    void save_PersistirtAnime_QuandoSucesso(){
-        Anime animeParaSalvar = createAnime();
+    void save_PersistirtAnime_QuandoSucesso() {
+        Anime animeParaSalvar = AnimeCreator.createAnimeToBeSaved();
         Anime animeSalvo = this.animeRepository.save(animeParaSalvar);
 
         Assertions.assertThat(animeSalvo).isNotNull();
@@ -36,8 +36,8 @@ class AnimeRepositoryTest {
 
     @Test
     @DisplayName("Atualizar anime - quando sucesso")
-    void save_AtualizarAnime_QuandoSucesso(){
-        Anime animeParaSalvar = createAnime();
+    void save_AtualizarAnime_QuandoSucesso() {
+        Anime animeParaSalvar = AnimeCreator.createAnimeToBeSaved();
 
         Anime animeSalvo = this.animeRepository.save(animeParaSalvar);
 
@@ -55,8 +55,8 @@ class AnimeRepositoryTest {
 
     @Test
     @DisplayName("Remover anime - quando sucesso")
-    void delete_RemoverAnime_QuandoSucesso(){
-        Anime animeParaSalvar = createAnime();
+    void delete_RemoverAnime_QuandoSucesso() {
+        Anime animeParaSalvar = AnimeCreator.createAnimeToBeSaved();
 
         Anime animeSalvo = this.animeRepository.save(animeParaSalvar);
 
@@ -70,8 +70,8 @@ class AnimeRepositoryTest {
 
     @Test
     @DisplayName("Busca por Nome - quando sucesso")
-    void BuscaPorNome_RetornaListaDeAnime_QuandoSucesso(){
-        Anime animeParaSalvar = createAnime();
+    void BuscaPorNome_RetornaListaDeAnime_QuandoSucesso() {
+        Anime animeParaSalvar = AnimeCreator.createAnimeToBeSaved();
 
         Anime animeSalvo = this.animeRepository.save(animeParaSalvar);
 
@@ -86,7 +86,7 @@ class AnimeRepositoryTest {
 
     @Test
     @DisplayName("Busca por Nome retorna Lista vazia - quando Anime não é encontrado")
-    void BuscaPorNome_RetornaListaVazia_QuandoAnimeNaoEncontrado(){
+    void BuscaPorNome_RetornaListaVazia_QuandoAnimeNaoEncontrado() {
 
         List<Anime> animes = this.animeRepository.findByName("Nao Existe");
 
@@ -108,14 +108,5 @@ class AnimeRepositoryTest {
 //                .withMessageContaining("O nome do Anime não pode ser vazio nem nulo");
 
 //    }
-
-
-
-    //criar anime
-    private Anime createAnime(){
-        return Anime.builder()
-                .name("Hajjime no Ippo")
-                .build();
-    }
 
 }

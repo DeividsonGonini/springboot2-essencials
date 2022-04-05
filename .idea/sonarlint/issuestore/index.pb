@@ -17,3 +17,5 @@ Ksrc/main/java/academy/devdojo/springboot2/handler/RestExceptionHandler.java,3\
 Ssrc/main/java/academy/devdojo/springboot2/exception/ValidationExceptionDetails.java,a\c\ace37a2baeb78b96bebe7432b1fbd032cd5df5b0
 y
 Isrc/main/java/academy/devdojo/springboot2/exception/ExceptionDetails.java,6\0\60dc4f9b6fd56b8b65aae55cab069e6e27dfa549
+y
+Isrc/main/java/academy/devdojo/springboot2/repository/AnimeRepository.java,0\c\0cfeda699bf69af6bc5b4a41e4297ef5bf127c15
