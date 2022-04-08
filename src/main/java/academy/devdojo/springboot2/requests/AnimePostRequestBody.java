@@ -13,4 +13,9 @@ public class AnimePostRequestBody {
     @NotEmpty(message = "O nome do Anime não pode ser vazio nem nulo")
     private String name;
 
+    @NotEmpty(message = "A Categoria não pode ser vazia nem nula")
+    private String idCategoria;
+
+    @NotEmpty(message = "O Pais Origem não pode ser vazio nem nulo")
+    private int idPaisOrigem;
 }
