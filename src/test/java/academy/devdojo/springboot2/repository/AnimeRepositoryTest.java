@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.Optional;
 
@@ -106,7 +107,7 @@ class AnimeRepositoryTest {
 //        Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
 //                .isThrownBy(() -> this.animeRepository.save(anime))
 //                .withMessageContaining("O nome do Anime não pode ser vazio nem nulo");
-
+//
 //    }
 
 }

@@ -3,8 +3,6 @@
 Osrc/main/java/academy/devdojo/springboot2/Springboot2EssentialsApplication.java,9\e\9e3112af83c9c44e94b1807912d0aa542aa43e12
 l
 <src/main/java/academy/devdojo/springboot2/util/DateUtil.java,1\8\182e090f660b0ac63ace42f8922e9c3df2aa03b8
-B
-docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
 |
 Lsrc/main/java/academy/devdojo/springboot2/exception/BadRequestException.java,1\9\193757bc43817e50ce6309859faa873ca98f50ec
 ƒ
@@ -15,5 +13,3 @@ Ksrc/main/java/academy/devdojo/springboot2/handler/RestExceptionHandler.java,3\
 Ssrc/main/java/academy/devdojo/springboot2/exception/ValidationExceptionDetails.java,a\c\ace37a2baeb78b96bebe7432b1fbd032cd5df5b0
 y
 Isrc/main/java/academy/devdojo/springboot2/exception/ExceptionDetails.java,6\0\60dc4f9b6fd56b8b65aae55cab069e6e27dfa549
-y
-Isrc/main/java/academy/devdojo/springboot2/repository/AnimeRepository.java,0\c\0cfeda699bf69af6bc5b4a41e4297ef5bf127c15
