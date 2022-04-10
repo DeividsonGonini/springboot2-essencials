@@ -25,3 +25,5 @@ p
 Nsrc/test/java/academy/devdojo/springboot2/util/AnimePutRequestBodyCreator.java,8\9\891135cf6a2dbbf683de49ad0afece4f57b45ce4
 }
 Msrc/test/java/academy/devdojo/springboot2/controller/AnimeControllerTest.java,4\f\4f9fa424ad16597d7ea8e648305d38ba6b461087
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a

@@ -11,7 +11,8 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "pais_origem")
+@Entity
+@Table(name = "pais_origem")
 public class PaisOrigem {
 
     @Id

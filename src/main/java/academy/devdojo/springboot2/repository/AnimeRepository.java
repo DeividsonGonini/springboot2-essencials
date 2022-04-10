@@ -2,26 +2,32 @@ package academy.devdojo.springboot2.repository;
 
 import academy.devdojo.springboot2.domain.Anime;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.List;
 
 //Informar a classe e o tipo de atributo usado no ID
 public interface AnimeRepository extends JpaRepository<Anime, Long> {
 
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("Anime");
+    EntityManager em = emf.createEntityManager();
+
     //Criando busca por name (tem que ser o mesmo atributo da Entidade)
     List<Anime> findByName(String name);
 
     //Consulta por nome e categorias e pais
-    @Query(value = "SELECT a FROM anime a " +
+    Query consulta1 = em.createQuery("SELECT a FROM anime a " +
             " LEFT JOIN categoria c " +
-            " ON a.idCategoria = c.id " +
+            " ON a.categoria = c.id " +
             " LEFT JOIN paisOrigem p " +
-            " ON a.idPaisOrigem = p.id " +
-            " WHERE c.id IN :idCategoria ");
-    List<Anime> findByNameCategoriaPais(@Param(idCategoria) List<Integer> idCategoria,
-                                        @Param(idPaisOrigem) Integer idPaisOrigem);
+            " ON a.paisOrigem = p.id " +
+            " WHERE a.categoria IN :categoria ");
+    List<Anime> findByCategoriaAndPaisOrigem(@Param("categoria") List<Integer> categoria,
+                                    @Param("paisOrigem") Integer paisOrigem);
 
 
 //    SELECT a.name, c.nome_categoria, p.nome_pais

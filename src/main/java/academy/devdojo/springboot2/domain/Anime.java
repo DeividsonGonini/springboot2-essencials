@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Data
@@ -16,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor //cria construtor vazio
 @Entity //transforma numa entidade para o spring
 @Builder
+@Table(name = "anime")
 public class Anime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//gera valor automatico
@@ -23,11 +21,13 @@ public class Anime {
     private String name;
 
 
-    @NotEmpty(message = "O nome do Anime não pode ser vazio nem nulo")
-    private String idCategoria;
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
 
-    @NotEmpty(message = "O nome do Anime não pode ser vazio nem nulo")
-    private String idPaisOrigem;
+    @ManyToOne
+    @JoinColumn(name = "id_pais_origem")
+    private PaisOrigem paisOrigem;
 
     @NotEmpty(message = "O nome do Anime não pode ser vazio nem nulo")
     public Anime(String name) {

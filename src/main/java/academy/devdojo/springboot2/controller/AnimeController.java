@@ -46,6 +46,14 @@ public class AnimeController {
         return ResponseEntity.ok(animeService.findByName(name));
     }
 
+    @GetMapping(path = "/filtro")
+    public ResponseEntity<List<Anime>>findByCategoriaPais(
+            @RequestParam  List<String> idCategoria,
+           @RequestParam String idPaisOrigem){
+        return ResponseEntity.ok(animeService.findByCategoriaPais(idCategoria, idPaisOrigem));
+    };
+
+
     @PostMapping
     public ResponseEntity<Anime> save(@RequestBody @Valid AnimePostRequestBody animePostRequestBody) {
         return new ResponseEntity<>(animeService.save(animePostRequestBody), HttpStatus.CREATED);

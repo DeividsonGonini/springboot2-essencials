@@ -12,7 +12,8 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Data
 @Builder
-@Entity(name = "categoria")
+@Entity
+@Table(name = "categoria")
 public class Categoria {
 
     @Id
