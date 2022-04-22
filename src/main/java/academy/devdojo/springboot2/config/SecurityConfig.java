@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @EnableWebSecurity
 @Log4j2
@@ -15,7 +16,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //O que estamos protegendo com Protocolo HTTP
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()//Todas requisições HTTP passam pela autorização
+        //Todas requisições HTTP passam pela autorização
+        http.csrf().disable() //CSRF ficara desabilitado apenas para facilitar no curso.
+                //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()) //Permite que o Front nao seja obrigado a sempre enviar o HttpOnly como True
+                //.and()
+                .authorizeRequests()
                 .anyRequest()
                 .authenticated()//cada requisição precisa estar autenticada
                 .and()
@@ -39,4 +44,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .password(passwordEncoder.encode("teste123")) //senha criptografada
                 .roles("USER"); //Grupos de Acesso
     }
+
 }
