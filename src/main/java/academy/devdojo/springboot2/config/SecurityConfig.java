@@ -15,6 +15,16 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 @EnableGlobalMethodSecurity(prePostEnabled = true) //Habilita o PreAuthorize utilizado no controller
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /*
+    *** Filtros do Security ***
+    BasicAuthenticationFilter - Token basic em Base64
+    UsernamePasswordFilter
+    DefaultLoginPageGeneratingFilter - Tele de login
+    DefaultLogoutPageGeneratingFilter
+    FilterSecurityInterceptor - checa se esta autorizado
+    Authentication -> Authorization
+     */
+
     //O que estamos protegendo com Protocolo HTTP
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -25,6 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()//cada requisição precisa estar autenticada
+                .and()
+                .formLogin()//exige que seja preenchido um formulario para logar
                 .and()
                 .httpBasic();//forma de autenticação
         }
