@@ -37,6 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()) //Permite que o Front nao seja obrigado a sempre enviar o HttpOnly como True
                 //.and()
                 .authorizeRequests()
+                .antMatchers("/animes/admin/**").hasRole("ADMIN") //para as URLs /animes/admin precisa ter a role ADMIN
+                .antMatchers("/animes/**").hasRole("USER")//para as URLs apenas /animes precisa basta ter a role USER
                 .anyRequest()
                 .authenticated()//cada requisição precisa estar autenticada
                 .and()
