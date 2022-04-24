@@ -45,6 +45,7 @@ public class AnimeController {
 
     //Metodo recuperando o usuario autenticado
     @GetMapping(path = "by-id/{id}")
+    @PreAuthorize("hasRole('ADMIN')") //Antes de executar verifica a Role
     public ResponseEntity<Anime> findByIdAuthenticationPrincipal(@PathVariable long id,
                                                                  @AuthenticationPrincipal UserDetails userDetails) {
         log.info(userDetails);

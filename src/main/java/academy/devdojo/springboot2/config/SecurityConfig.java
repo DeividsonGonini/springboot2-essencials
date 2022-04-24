@@ -1,5 +1,7 @@
 package academy.devdojo.springboot2.config;
 
+import academy.devdojo.springboot2.service.DevDojoUserDetailsService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -8,12 +10,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @EnableWebSecurity
 @Log4j2
 @EnableGlobalMethodSecurity(prePostEnabled = true) //Habilita o PreAuthorize utilizado no controller
+@RequiredArgsConstructor
+@SuppressWarnings("java:S5344")//Desconsiderando Warnings
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    private final DevDojoUserDetailsService devDojoUserDetailsService;
 
     /*
     *** Filtros do Security ***
@@ -39,24 +43,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()//exige que seja preenchido um formulario para logar
                 .and()
                 .httpBasic();//forma de autenticação
-        }
-
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         //Criptografando a Senha/Password
         PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        log.info("Password encoded {}", passwordEncoder.encode("test"));
+        log.info("Password encoded {}", passwordEncoder.encode("teste123"));
 
-       //Criando Usuarios em Memória
+        //Autentica por usuarios em memoria
+        //Criando Usuarios em Memória
         auth.inMemoryAuthentication()
-                .withUser("gonini") //usuario
+                .withUser("gonini2") //usuario
                 .password(passwordEncoder.encode("teste123")) //senha criptografada
                 .roles("USER", "ADMIN") //Grupos de Acesso
                 .and()
-                .withUser("devdojo") //usuario
+                .withUser("devdojo2") //usuario
                 .password(passwordEncoder.encode("teste123")) //senha criptografada
                 .roles("USER"); //Grupos de Acesso
-    }
 
+        //Autentica por usuarios no banco de dados
+        auth.userDetailsService(devDojoUserDetailsService).passwordEncoder(passwordEncoder);
+    }
 }
