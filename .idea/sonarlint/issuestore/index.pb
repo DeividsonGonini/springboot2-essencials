@@ -39,7 +39,3 @@ S
 Msrc/test/java/academy/devdojo/springboot2/controller/AnimeControllerTest.java,4\f\4f9fa424ad16597d7ea8e648305d38ba6b461087
 |
 Lsrc/main/java/academy/devdojo/springboot2/requests/AnimePostRequestBody.java,d\8\d823e39f66cacb2394729a037bc53f6cfadd755a
-|
-Lsrc/test/java/academy/devdojo/springboot2/integration/AnimeControllerIT.java,b\5\b547ff487b4f63e8999086f9dd0a9c9146c8b965
-„
-Tsrc/test/java/academy/devdojo/springboot2/Springboot2EssentialsApplicationTests.java,8\e\8e8dbbc1cade41b72896ae920115da8a2b137f7c
