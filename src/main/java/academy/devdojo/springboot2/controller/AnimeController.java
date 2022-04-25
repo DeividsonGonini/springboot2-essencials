@@ -6,6 +6,7 @@ import academy.devdojo.springboot2.requests.AnimePutRequestBody;
 import academy.devdojo.springboot2.service.AnimeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -27,8 +28,9 @@ public class AnimeController {
 
 
     //localhost:8080/animes
+    //@Parameter(hidden = true) Corrige Page no swagger
     @GetMapping//Metodo passando URL do Metodo
-    public ResponseEntity<Page<Anime>> animes(Pageable pageable) {
+    public ResponseEntity<Page<Anime>> animes(@ParameterObject Pageable pageable) {
         return ResponseEntity.ok(animeService.listAll(pageable));
     }
 

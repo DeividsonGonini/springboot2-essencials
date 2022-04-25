@@ -35,7 +35,5 @@ w
 Gsrc/main/java/academy/devdojo/springboot2/wrapper/PageableResponse.java,3\a\3ae6a194d2be2c4fde912f03a275361631b2d3ff
 S
 #src/test/resources/logback-test.xml,1\e\1ed7d9f38cb28fab5fedaa18ebddcc542ac558d7
-}
-Msrc/test/java/academy/devdojo/springboot2/controller/AnimeControllerTest.java,4\f\4f9fa424ad16597d7ea8e648305d38ba6b461087
 |
 Lsrc/main/java/academy/devdojo/springboot2/requests/AnimePostRequestBody.java,d\8\d823e39f66cacb2394729a037bc53f6cfadd755a
