@@ -28,7 +28,6 @@ public class AnimeController {
 
 
     //localhost:8080/animes
-    //@Parameter(hidden = true) Corrige Page no swagger
     @GetMapping//Metodo passando URL do Metodo
     public ResponseEntity<Page<Anime>> animes(@ParameterObject Pageable pageable) {
         return ResponseEntity.ok(animeService.listAll(pageable));
