@@ -11,8 +11,6 @@ Ksrc/main/java/academy/devdojo/springboot2/handler/RestExceptionHandler.java,3\
 Ssrc/main/java/academy/devdojo/springboot2/exception/ValidationExceptionDetails.java,a\c\ace37a2baeb78b96bebe7432b1fbd032cd5df5b0
 y
 Isrc/main/java/academy/devdojo/springboot2/exception/ExceptionDetails.java,6\0\60dc4f9b6fd56b8b65aae55cab069e6e27dfa549
-{
-Ksrc/main/java/academy/devdojo/springboot2/requests/AnimePutRequestBody.java,b\4\b407e4d0527c7463c0afc1f7e3a01f3bc4b7b862
 q
 Asrc/main/java/academy/devdojo/springboot2/mapper/AnimeMapper.java,8\8\8849e6ae16bdcfe0c038de99215f09c527a39771
 k
@@ -35,5 +33,3 @@ w
 Gsrc/main/java/academy/devdojo/springboot2/wrapper/PageableResponse.java,3\a\3ae6a194d2be2c4fde912f03a275361631b2d3ff
 S
 #src/test/resources/logback-test.xml,1\e\1ed7d9f38cb28fab5fedaa18ebddcc542ac558d7
-|
-Lsrc/main/java/academy/devdojo/springboot2/requests/AnimePostRequestBody.java,d\8\d823e39f66cacb2394729a037bc53f6cfadd755a

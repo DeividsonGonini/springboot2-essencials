@@ -4,6 +4,9 @@ import academy.devdojo.springboot2.domain.Anime;
 import academy.devdojo.springboot2.requests.AnimePostRequestBody;
 import academy.devdojo.springboot2.requests.AnimePutRequestBody;
 import academy.devdojo.springboot2.service.AnimeService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springdoc.api.annotations.ParameterObject;
@@ -29,6 +32,8 @@ public class AnimeController {
 
     //localhost:8080/animes
     @GetMapping//Metodo passando URL do Metodo
+    @Operation(summary = "Lista todos os animes paginados", description = "O tamanho padrao da paginação é 20, para alterar utilize o parametro size",
+    tags = {"anime"})
     public ResponseEntity<Page<Anime>> animes(@ParameterObject Pageable pageable) {
         return ResponseEntity.ok(animeService.listAll(pageable));
     }
@@ -63,6 +68,10 @@ public class AnimeController {
     }
 
     @DeleteMapping(path = "/admin/{id}")//passando URL do Metodo
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Anime deletado com Sucesso"),
+            @ApiResponse(responseCode = "400", description = "Quando o Anime não é encontrado no Banco de Dados")
+    })
     public ResponseEntity<Void> delete(@PathVariable long id) {
         animeService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
