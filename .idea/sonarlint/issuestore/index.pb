@@ -15,8 +15,6 @@ q
 Asrc/main/java/academy/devdojo/springboot2/mapper/AnimeMapper.java,8\8\8849e6ae16bdcfe0c038de99215f09c527a39771
 k
 ;src/main/java/academy/devdojo/springboot2/domain/Anime.java,2\6\262affbbfc97bbc42ed0d2632ef2cdad4a811b15
-B
-docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
 ~
 Nsrc/test/java/academy/devdojo/springboot2/util/AnimePutRequestBodyCreator.java,8\9\891135cf6a2dbbf683de49ad0afece4f57b45ce4
 }
@@ -33,3 +31,9 @@ w
 Gsrc/main/java/academy/devdojo/springboot2/wrapper/PageableResponse.java,3\a\3ae6a194d2be2c4fde912f03a275361631b2d3ff
 S
 #src/test/resources/logback-test.xml,1\e\1ed7d9f38cb28fab5fedaa18ebddcc542ac558d7
+}
+Msrc/test/java/academy/devdojo/springboot2/controller/AnimeControllerTest.java,4\f\4f9fa424ad16597d7ea8e648305d38ba6b461087
+|
+Lsrc/main/java/academy/devdojo/springboot2/requests/AnimePostRequestBody.java,d\8\d823e39f66cacb2394729a037bc53f6cfadd755a
+{
+Ksrc/main/java/academy/devdojo/springboot2/requests/AnimePutRequestBody.java,b\4\b407e4d0527c7463c0afc1f7e3a01f3bc4b7b862

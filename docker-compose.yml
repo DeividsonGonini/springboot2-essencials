@@ -19,6 +19,18 @@ services:
     networks:
       - mysql-compose-network
 
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    #pega o arquivo prometheus.yml que criamos, copia para o container na pasta etc/prometheus
+    volumes:
+      - "./src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml"
+    #executa um comando executando o arquivo de configuração que inserimos
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+
 volumes:
   devdojo_data:
 
